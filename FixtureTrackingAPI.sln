@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixtureTrackingAPI", "FixtureTrackingAPI\FixtureTrackingAPI.csproj", "{ADF25DE9-D5F1-42B3-8C88-4822DDA203EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADF25DE9-D5F1-42B3-8C88-4822DDA203EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF25DE9-D5F1-42B3-8C88-4822DDA203EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF25DE9-D5F1-42B3-8C88-4822DDA203EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF25DE9-D5F1-42B3-8C88-4822DDA203EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B89F07B-9CEF-46CF-8CB0-42F036C31336}
+	EndGlobalSection
+EndGlobal
