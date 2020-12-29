@@ -1,13 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.0" NoWarn="NU1605" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FixtureTracking.Business">
+      <HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="FixtureTracking.Core">
+      <HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FixtureTracking.Entities">
+      <HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Entities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
