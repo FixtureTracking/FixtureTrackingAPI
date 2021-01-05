@@ -1,25 +1,24 @@
 ﻿using FixtureTracking.Business.Abstract;
-using FixtureTracking.Entities.Dtos.Fixture;
+using FixtureTracking.Entities.Dtos.Category;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace FixtureTrackingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FixturesController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
-        private readonly IFixtureService fixtureService;
+        private readonly ICategoryService categoryService;
 
-        public FixturesController(IFixtureService fixtureService)
+        public CategoriesController(ICategoryService categoryService)
         {
-            this.fixtureService = fixtureService;
+            this.categoryService = categoryService;
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public IActionResult GetById(short id)
         {
-            var result = fixtureService.GetById(id);
+            var result = categoryService.GetById(id);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
@@ -28,34 +27,34 @@ namespace FixtureTrackingAPI.Controllers
         [HttpGet()]
         public IActionResult GetList()
         {
-            var result = fixtureService.GetList();
+            var result = categoryService.GetList();
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
         }
 
         [HttpPost()]
-        public IActionResult Add(FixtureForAddDto fixtureForAddDto)
+        public IActionResult Add(CategoryForAddDto categoryForAddDto)
         {
-            var result = fixtureService.Add(fixtureForAddDto);
+            var result = categoryService.Add(categoryForAddDto);
             if (result.Success)
                 return CreatedAtAction("GetById", new { id = result.Data }, result.Message);
             return BadRequest(result.Message);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(FixtureForUpdateDto fixtureForUpdateDto)
+        public IActionResult Update(CategoryForUpdateDto categoryForUpdateDto)
         {
-            var result = fixtureService.Update(fixtureForUpdateDto);
+            var result = categoryService.Update(categoryForUpdateDto);
             if (result.Success)
                 return NoContent();
             return BadRequest(result.Message);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public IActionResult Delete(short id)
         {
-            var result = fixtureService.Delete(id);
+            var result = categoryService.Delete(id);
             if (result.Success)
                 return NoContent();
             return BadRequest(result.Message);

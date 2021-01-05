@@ -1,25 +1,29 @@
 ﻿using FixtureTracking.Business.Abstract;
-using FixtureTracking.Entities.Dtos.Fixture;
+using FixtureTracking.Entities.Dtos.Supplier;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FixtureTrackingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FixturesController : ControllerBase
+    public class SuppliersController : ControllerBase
     {
-        private readonly IFixtureService fixtureService;
+        private readonly ISupplierService supplierService;
 
-        public FixturesController(IFixtureService fixtureService)
+        public SuppliersController(ISupplierService supplierService)
         {
-            this.fixtureService = fixtureService;
+            this.supplierService = supplierService;
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public IActionResult GetById(int id)
         {
-            var result = fixtureService.GetById(id);
+            var result = supplierService.GetById(id);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
@@ -28,34 +32,34 @@ namespace FixtureTrackingAPI.Controllers
         [HttpGet()]
         public IActionResult GetList()
         {
-            var result = fixtureService.GetList();
+            var result = supplierService.GetList();
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
         }
 
         [HttpPost()]
-        public IActionResult Add(FixtureForAddDto fixtureForAddDto)
+        public IActionResult Add(SupplierForAddDto supplierForAddDto)
         {
-            var result = fixtureService.Add(fixtureForAddDto);
+            var result = supplierService.Add(supplierForAddDto);
             if (result.Success)
                 return CreatedAtAction("GetById", new { id = result.Data }, result.Message);
             return BadRequest(result.Message);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(FixtureForUpdateDto fixtureForUpdateDto)
+        public IActionResult Update(SupplierForUpdateDto supplierForUpdateDto)
         {
-            var result = fixtureService.Update(fixtureForUpdateDto);
+            var result = supplierService.Update(supplierForUpdateDto);
             if (result.Success)
                 return NoContent();
             return BadRequest(result.Message);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public IActionResult Delete(int id)
         {
-            var result = fixtureService.Delete(id);
+            var result = supplierService.Delete(id);
             if (result.Success)
                 return NoContent();
             return BadRequest(result.Message);
