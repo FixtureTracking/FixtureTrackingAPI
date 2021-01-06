@@ -33,6 +33,15 @@ namespace FixtureTrackingAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        [HttpGet("{id}/fixtures")]
+        public IActionResult GetFixtures(short id)
+        {
+            var result = categoryService.GetFixtures(id);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result.Message);
+        }
+
         [HttpPost()]
         public IActionResult Add(CategoryForAddDto categoryForAddDto)
         {

@@ -1,11 +1,6 @@
 ﻿using FixtureTracking.Business.Abstract;
 using FixtureTracking.Entities.Dtos.Supplier;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FixtureTrackingAPI.Controllers
 {
@@ -33,6 +28,15 @@ namespace FixtureTrackingAPI.Controllers
         public IActionResult GetList()
         {
             var result = supplierService.GetList();
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("{id}/fixtures")]
+        public IActionResult GetFixtures(int id)
+        {
+            var result = supplierService.GetFixtures(id);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);

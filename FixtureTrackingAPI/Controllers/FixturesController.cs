@@ -34,6 +34,15 @@ namespace FixtureTrackingAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        [HttpGet("{id}/debits")]
+        public IActionResult GetDebits(Guid id)
+        {
+            var result = fixtureService.GetDebits(id);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result.Message);
+        }
+
         [HttpPost()]
         public IActionResult Add(FixtureForAddDto fixtureForAddDto)
         {

@@ -33,6 +33,15 @@ namespace FixtureTrackingAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        [HttpGet("{id}/users")]
+        public IActionResult GetUsers(int id)
+        {
+            var result = departmentService.GetUsers(id);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result.Message);
+        }
+
         [HttpPost()]
         public IActionResult Add(DepartmentForAddDto departmentForAddDto)
         {

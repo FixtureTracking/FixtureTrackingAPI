@@ -33,6 +33,15 @@ namespace FixtureTrackingAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        [HttpGet("{id}/debits")]
+        public IActionResult GetDebits(Guid id)
+        {
+            var result = userService.GetDebits(id);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result.Message);
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
