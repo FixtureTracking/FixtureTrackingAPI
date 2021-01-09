@@ -1,3 +1,6 @@
+using FixtureTracking.Core.DependencyResolvers;
+using FixtureTracking.Core.Extensions;
+using FixtureTracking.Core.Utilities.IoC;
 using FixtureTracking.Core.Utilities.Security.Encryption;
 using FixtureTracking.Core.Utilities.Security.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -47,6 +50,11 @@ namespace FixtureTrackingAPI
                     ValidAudience = tokenOptions.Audience,
                     IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey),
                 };
+            });
+
+            services.AddDependencyResolvers(new ICoreModule[]
+            {
+                new CoreModule()
             });
         }
 
