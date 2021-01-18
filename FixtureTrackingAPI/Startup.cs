@@ -67,6 +67,8 @@ namespace FixtureTrackingAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FixtureTrackingAPI v1"));
             }
 
+            app.ConfigureCustomExceptionMiddleware();
+
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader());  // TODO : withorigin - allow header -> domain
 
             app.UseHttpsRedirection();
