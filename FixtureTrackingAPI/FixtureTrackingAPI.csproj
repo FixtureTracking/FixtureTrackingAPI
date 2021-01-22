@@ -1,35 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<UserSecretsId>f48d6171-b3b1-4544-abb8-53ed002bb80b</UserSecretsId>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
-    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
-    <PackageReference Include="EFCore.NamingConventions" Version="5.0.0-rc1" />
-    <PackageReference Include="FluentValidation" Version="9.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" NoWarn="NU1605" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.0" NoWarn="NU1605" />
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="NLog.Schema" Version="4.7.6" />
-    <PackageReference Include="NLog.Web.AspNetCore" Version="4.10.0" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+		<PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
+		<PackageReference Include="EFCore.NamingConventions" Version="5.0.0-rc1" />
+		<PackageReference Include="FluentValidation" Version="9.3.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" NoWarn="NU1605" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.0" NoWarn="NU1605" />
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+		<PackageReference Include="NLog.Schema" Version="4.7.6" />
+		<PackageReference Include="NLog.Web.AspNetCore" Version="4.10.0" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="FixtureTracking.Business">
-      <HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Business.dll</HintPath>
-    </Reference>
-    <Reference Include="FixtureTracking.Core">
-      <HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="FixtureTracking.Entities">
-      <HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Entities.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="FixtureTracking.Business">
+			<HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Business.dll</HintPath>
+		</Reference>
+		<Reference Include="FixtureTracking.Core">
+			<HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="FixtureTracking.Entities">
+			<HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Entities.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
 </Project>
