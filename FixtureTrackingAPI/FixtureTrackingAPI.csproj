@@ -28,6 +28,9 @@
 		<Reference Include="FixtureTracking.Core">
 			<HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Core.dll</HintPath>
 		</Reference>
+		<Reference Include="FixtureTracking.DataAccess">
+		  <HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.DataAccess.dll</HintPath>
+		</Reference>
 		<Reference Include="FixtureTracking.Entities">
 			<HintPath>..\..\FixtureTrackingBackend\FixtureTracking.Business\bin\Debug\netstandard2.1\FixtureTracking.Entities.dll</HintPath>
 		</Reference>

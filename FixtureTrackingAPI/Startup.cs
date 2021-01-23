@@ -3,6 +3,7 @@ using FixtureTracking.Core.Extensions;
 using FixtureTracking.Core.Utilities.IoC;
 using FixtureTracking.Core.Utilities.Security.Encryption;
 using FixtureTracking.Core.Utilities.Security.Tokens;
+using FixtureTracking.DataAccess.Concrete.EntityFramework.Contexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -83,6 +84,8 @@ namespace FixtureTrackingAPI
             {
                 endpoints.MapControllers();
             });
+
+            FixtureTrackingContext.SetConnectionString(Configuration.GetConnectionString("FixtureTrackingDB"));
         }
     }
 }
