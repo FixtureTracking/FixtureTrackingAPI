@@ -1,3 +1,4 @@
+using FixtureTracking.Core.CrossCuttingConcerns.Logging.NLog.Layouts;
 using FixtureTracking.Core.DependencyResolvers;
 using FixtureTracking.Core.Extensions;
 using FixtureTracking.Core.Utilities.IoC;
@@ -57,6 +58,7 @@ namespace FixtureTrackingAPI
             {
                 new CoreModule()
             });
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -86,6 +88,7 @@ namespace FixtureTrackingAPI
             });
 
             FixtureTrackingContext.SetConnectionString(Configuration.GetConnectionString("FixtureTrackingDB"));
+            ConnectionStringLayout.SetConnectionString(Configuration.GetConnectionString("NLogDB"));
         }
     }
 }
