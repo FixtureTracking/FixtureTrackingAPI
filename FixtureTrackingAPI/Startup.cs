@@ -66,9 +66,14 @@ namespace FixtureTrackingAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FixtureTrackingAPI v1"));
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "FixtureTrackingAPI v1");
+                c.RoutePrefix = "";
+            });
 
             app.ConfigureCustomExceptionMiddleware();
 
