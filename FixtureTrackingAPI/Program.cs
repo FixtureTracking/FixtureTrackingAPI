@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using FixtureTracking.Business.DependencyResolvers.Autofac;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace FixtureTrackingAPI
 {
@@ -23,6 +24,10 @@ namespace FixtureTrackingAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
+                    var port = Environment.GetEnvironmentVariable("PORT");
+                    if (port != null)
+                        webBuilder.UseUrls("http://*:" + port);
                 });
     }
 }
