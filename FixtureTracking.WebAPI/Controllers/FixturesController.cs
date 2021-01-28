@@ -1,25 +1,25 @@
 ﻿using FixtureTracking.Business.Abstract;
-using FixtureTracking.Entities.Dtos.Debit;
+using FixtureTracking.Entities.Dtos.Fixture;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace FixtureTrackingAPI.Controllers
+namespace FixtureTracking.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DebitsController : ControllerBase
+    public class FixturesController : ControllerBase
     {
-        private readonly IDebitService debitService;
+        private readonly IFixtureService fixtureService;
 
-        public DebitsController(IDebitService debitService)
+        public FixturesController(IFixtureService fixtureService)
         {
-            this.debitService = debitService;
+            this.fixtureService = fixtureService;
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
-            var result = debitService.GetById(id);
+            var result = fixtureService.GetById(id);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
@@ -28,25 +28,34 @@ namespace FixtureTrackingAPI.Controllers
         [HttpGet()]
         public IActionResult GetList()
         {
-            var result = debitService.GetList();
+            var result = fixtureService.GetList();
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("{id}/debits")]
+        public IActionResult GetDebits(Guid id)
+        {
+            var result = fixtureService.GetDebits(id);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
         }
 
         [HttpPost()]
-        public IActionResult Add(DebitForAddDto debitForAddDto)
+        public IActionResult Add(FixtureForAddDto fixtureForAddDto)
         {
-            var result = debitService.Add(debitForAddDto);
+            var result = fixtureService.Add(fixtureForAddDto);
             if (result.Success)
                 return CreatedAtAction("GetById", new { id = result.Data }, result.Message);
             return BadRequest(result.Message);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(DebitForUpdateDto debitForUpdateDto)
+        public IActionResult Update(FixtureForUpdateDto fixtureForUpdateDto)
         {
-            var result = debitService.Update(debitForUpdateDto);
+            var result = fixtureService.Update(fixtureForUpdateDto);
             if (result.Success)
                 return NoContent();
             return BadRequest(result.Message);
@@ -55,7 +64,7 @@ namespace FixtureTrackingAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
-            var result = debitService.Delete(id);
+            var result = fixtureService.Delete(id);
             if (result.Success)
                 return NoContent();
             return BadRequest(result.Message);

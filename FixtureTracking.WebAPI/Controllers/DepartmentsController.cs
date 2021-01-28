@@ -1,24 +1,24 @@
 ﻿using FixtureTracking.Business.Abstract;
-using FixtureTracking.Entities.Dtos.Supplier;
+using FixtureTracking.Entities.Dtos.Department;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FixtureTrackingAPI.Controllers
+namespace FixtureTracking.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SuppliersController : ControllerBase
+    public class DepartmentsController : ControllerBase
     {
-        private readonly ISupplierService supplierService;
+        private readonly IDepartmentService departmentService;
 
-        public SuppliersController(ISupplierService supplierService)
+        public DepartmentsController(IDepartmentService departmentService)
         {
-            this.supplierService = supplierService;
+            this.departmentService = departmentService;
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var result = supplierService.GetById(id);
+            var result = departmentService.GetById(id);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
@@ -27,34 +27,34 @@ namespace FixtureTrackingAPI.Controllers
         [HttpGet()]
         public IActionResult GetList()
         {
-            var result = supplierService.GetList();
+            var result = departmentService.GetList();
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
         }
 
-        [HttpGet("{id}/fixtures")]
-        public IActionResult GetFixtures(int id)
+        [HttpGet("{id}/users")]
+        public IActionResult GetUsers(int id)
         {
-            var result = supplierService.GetFixtures(id);
+            var result = departmentService.GetUsers(id);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
         }
 
         [HttpPost()]
-        public IActionResult Add(SupplierForAddDto supplierForAddDto)
+        public IActionResult Add(DepartmentForAddDto departmentForAddDto)
         {
-            var result = supplierService.Add(supplierForAddDto);
+            var result = departmentService.Add(departmentForAddDto);
             if (result.Success)
                 return CreatedAtAction("GetById", new { id = result.Data }, result.Message);
             return BadRequest(result.Message);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(SupplierForUpdateDto supplierForUpdateDto)
+        public IActionResult Update(DepartmentForUpdateDto departmentForUpdateDto)
         {
-            var result = supplierService.Update(supplierForUpdateDto);
+            var result = departmentService.Update(departmentForUpdateDto);
             if (result.Success)
                 return NoContent();
             return BadRequest(result.Message);
@@ -63,7 +63,7 @@ namespace FixtureTrackingAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var result = supplierService.Delete(id);
+            var result = departmentService.Delete(id);
             if (result.Success)
                 return NoContent();
             return BadRequest(result.Message);

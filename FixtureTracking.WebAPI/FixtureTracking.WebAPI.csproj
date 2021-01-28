@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<UserSecretsId>f48d6171-b3b1-4544-abb8-53ed002bb80b</UserSecretsId>
+		<RootNamespace>FixtureTracking.WebAPI</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

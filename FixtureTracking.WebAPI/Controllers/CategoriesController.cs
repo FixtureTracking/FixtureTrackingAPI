@@ -2,7 +2,7 @@
 using FixtureTracking.Entities.Dtos.Category;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FixtureTrackingAPI.Controllers
+namespace FixtureTracking.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace FixtureTrackingAPI.Controllers
+namespace FixtureTracking.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

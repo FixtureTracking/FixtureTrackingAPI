@@ -5,4 +5,4 @@ MAINTAINER MustafaCEVIK <se.mustafacevik@gmail.com>
 COPY bin/Release/net5.0/publish/ app/
 WORKDIR /app
 
-ENTRYPOINT ["dotnet", "FixtureTrackingAPI.dll"]
+ENTRYPOINT ["dotnet", "FixtureTracking.WebAPI.dll"]
