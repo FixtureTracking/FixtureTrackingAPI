@@ -1,4 +1,5 @@
 ﻿using FixtureTracking.Business.Abstract;
+using FixtureTracking.Business.Constants;
 using FixtureTracking.Entities.Dtos.Fixture;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -29,6 +30,15 @@ namespace FixtureTracking.WebAPI.Controllers
         public IActionResult GetList()
         {
             var result = fixtureService.GetList();
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("available")]
+        public IActionResult GetAvailableList()
+        {
+            var result = fixtureService.GetListByPosition(FixturePositions.Position.Available);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
