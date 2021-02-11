@@ -35,10 +35,10 @@ namespace FixtureTracking.WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("available")]
-        public IActionResult GetAvailableList()
+        [HttpGet("positions")]
+        public IActionResult GetListByPosition([FromQuery(Name = "p")] FixturePositions.Position position = FixturePositions.Position.Available)
         {
-            var result = fixtureService.GetListByPosition(FixturePositions.Position.Available);
+            var result = fixtureService.GetListByPosition(position);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result.Message);
