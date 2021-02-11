@@ -43,15 +43,6 @@ namespace FixtureTracking.WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(DebitForUpdateDto debitForUpdateDto)
-        {
-            var result = debitService.Update(debitForUpdateDto);
-            if (result.Success)
-                return NoContent();
-            return BadRequest(result.Message);
-        }
-
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

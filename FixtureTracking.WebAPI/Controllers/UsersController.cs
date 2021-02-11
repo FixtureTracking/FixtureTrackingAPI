@@ -24,15 +24,6 @@ namespace FixtureTracking.WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("{id}/details")]
-        public IActionResult GetDetail(Guid id)
-        {
-            var result = userService.GetDetail(id);
-            if (result.Success)
-                return Ok(result);
-            return BadRequest(result.Message);
-        }
-
         [HttpGet()]
         public IActionResult GetList()
         {
